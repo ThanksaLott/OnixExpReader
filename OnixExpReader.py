@@ -227,4 +227,11 @@ if __name__ == "__main__":
     
     file = "test/example_experiment.OnixExp"
     data_df = get_rundata(file)
-    plot_all_wells(insert_pressure(data_df))
+    loaded = pd.read_pickle("test/example_experiment_data.pkl")
+    pd.testing.assert_frame_equal(data_df, loaded)
+    
+    pressure_df = insert_pressure(data_df)
+    loaded = pd.read_pickle("test/example_experiment_pressure.pkl")
+    pd.testing.assert_frame_equal(pressure_df, loaded)
+    
+    plot_all_wells(pressure_df)
