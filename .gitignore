@@ -1,2 +1,6 @@
 /__pycache__
-/.DS_Store
+
+# Ignore Mac OS Stuff
+.DS_Store
+.AppleDouble
+.LSOverride
